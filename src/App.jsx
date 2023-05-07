@@ -7,7 +7,7 @@ import './App.css';
 function reducer(state, action) {
   switch (action.type) {
     case "AddTag":
-      console.log(state.tags);
+      // console.log(state.tags);
       return state.tags.includes(action.payload)
         ? { ...state } :
         {
@@ -41,6 +41,15 @@ function App() {
 
   function onRemove(tag) {
     dispatch({ type: "RemoveTag", payload: tag });
+
+    setJobs([...jobsCpy].filter(job => {
+      const newTags = [...state.tags].filter(tag_ => tag_ !== tag);
+
+      if (!newTags) return job;
+
+      console.log(newTags);
+      return job.tags.join('').includes(newTags.join(''));
+    }));
   }
 
   return (
