@@ -5,12 +5,12 @@ function JobListing(props) {
     <div className="joblisting">
       {notifications.featured ? <div className="notification-bar"></div> : <></>}
       <div className="img-container">
-        <img src={img} alt={company} width="60px" />
+        <img src={img} className="company-img" alt={company} width="60px" />
       </div>
 
 
       <div className="about-job">
-        <div>
+        <div className="description">
           <span className="company">{company}</span>
           {notifications.new ? <span className="notification new">NEW!</span> : <></>}
           {notifications.featured ? <span className="notification featured">FEATURED</span> : <></>}
@@ -25,6 +25,8 @@ function JobListing(props) {
           <span>{placement}</span>
         </div>
       </div>
+
+      <div className="horizontal-rule"></div>
 
       <div className="tags">
         {tags.map(tag => (

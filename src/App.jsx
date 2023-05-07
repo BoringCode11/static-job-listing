@@ -41,12 +41,6 @@ function App() {
 
   function onRemove(tag) {
     dispatch({ type: "RemoveTag", payload: tag });
-
-    const newTags = [...state.tags].filter(tag => {
-      return tag === tag;
-    })
-
-
   }
 
   return (

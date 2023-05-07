@@ -1,12 +1,10 @@
 import close from '../assets/images/icon-remove.svg';
 
-function SearchFilter({ tags, onSubmit, value, onChange, onRemove, onClear }) {
+function SearchFilter({ tags, onRemove, onClear }) {
   return (
-    <div className="search-filter">
-      {!tags.length
-        ?
-        <p className='notags'>no tags</p>
-        : tags.map((tag) => (
+    <>
+      {!tags.length ? <></> : <div className="search-filter">
+        {tags.map((tag) => (
           <div key={tag} className='filters'>
             <span className='filter-tag'>
               <span>
@@ -20,11 +18,11 @@ function SearchFilter({ tags, onSubmit, value, onChange, onRemove, onClear }) {
             </span>
           </div>
         ))}
-
-      <span className="clear" onClick={onClear}>
-        Clear
-      </span>
-    </div>
+        <span className="clear" onClick={onClear}>
+          Clear
+        </span>
+      </div>}
+    </>
   );
 }
 
