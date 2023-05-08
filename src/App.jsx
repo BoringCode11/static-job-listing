@@ -7,7 +7,6 @@ import './App.css';
 function reducer(state, action) {
   switch (action.type) {
     case "AddTag":
-      // console.log(state.tags);
       return state.tags.includes(action.payload)
         ? { ...state } :
         {
